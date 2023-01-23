@@ -1,6 +1,6 @@
 package com.nology.parking.vehicles;
 
-public abstract class Vehicle implements Comparable<Vehicle> {
+public abstract class Vehicle {
 
     protected int id;
     protected int requiredNumberOfCompactSpots;
@@ -12,6 +12,10 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         this.requiredNumberOfCompactSpots = requiredNumberOfCompactSpots;
         this.requiredNumberOfRegularSpots = requiredNumberOfRegularSpots;
         this.requiredNumberOfLargeSpots = requiredNumberOfLargeSpots;
+    }
+
+    public Vehicle(){
+
     }
 
     public int getId() {
@@ -45,4 +49,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     public void setRequiredNumberOfLargeSpots(int requiredNumberOfLargeSpots) {
         this.requiredNumberOfLargeSpots = requiredNumberOfLargeSpots;
     }
+
+
+    public abstract VehicleType getType();
 }

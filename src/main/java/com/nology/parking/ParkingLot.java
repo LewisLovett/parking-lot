@@ -96,6 +96,9 @@ public class ParkingLot {
         this.numberOfCompactSpaces = numberOfCompactSpaces;
         this.numberOfRegularSpaces = numberOfRegularSpaces;
         this.numberOfLargeSpaces = numberOfLargeSpaces;
+        this.numberOfUsedCompactSpaces = 0;
+        this.numberOfUsedRegularSpaces = 0;
+        this.numberOfUsedLargeSpaces = 0;
     }
 
     public void vehicleValidation(Vehicle vehicle){
@@ -131,7 +134,6 @@ public class ParkingLot {
     }
 
     public void addVehicle(Vehicle vehicle){
-        System.out.println(vehicle.getType());
         switch (vehicle.getType()){
             case motorbike:
                 motorbikes.add(vehicle);
@@ -143,6 +145,45 @@ public class ParkingLot {
                 vans.add(vehicle);
                 break;
         }
-        System.out.println(cars);
+    }
+
+    public boolean checkIfParkingLotIsFull(){
+        if(numberOfUsedCompactSpaces==numberOfCompactSpaces&&numberOfUsedRegularSpaces==numberOfRegularSpaces&&numberOfUsedLargeSpaces==numberOfLargeSpaces){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean checkIfParkingLotIsEmpty(){
+        if(numberOfUsedCompactSpaces==0&&numberOfUsedRegularSpaces==0&&numberOfUsedLargeSpaces==0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean checkIfCompactSpacesAreFull(){
+        if(numberOfUsedCompactSpaces==numberOfCompactSpaces){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean checkIfRegularSpacesAreFull(){
+        if(numberOfUsedRegularSpaces==numberOfRegularSpaces){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean checkIfLargeSpacesAreFull(){
+        if(numberOfUsedLargeSpaces==numberOfLargeSpaces){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

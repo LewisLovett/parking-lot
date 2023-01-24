@@ -7,11 +7,14 @@ public abstract class Vehicle {
     protected int requiredNumberOfRegularSpots;
     protected int requiredNumberOfLargeSpots;
 
-    public Vehicle(int id, int requiredNumberOfCompactSpots, int requiredNumberOfRegularSpots, int requiredNumberOfLargeSpots) {
+    protected ParkingSpots parkingSpot;
+
+    public Vehicle(int id, int requiredNumberOfCompactSpots, int requiredNumberOfRegularSpots, int requiredNumberOfLargeSpots, ParkingSpots parkingSpot) {
         this.id = id;
         this.requiredNumberOfCompactSpots = requiredNumberOfCompactSpots;
         this.requiredNumberOfRegularSpots = requiredNumberOfRegularSpots;
         this.requiredNumberOfLargeSpots = requiredNumberOfLargeSpots;
+        this.parkingSpot = parkingSpot;
     }
 
     public Vehicle(){
@@ -50,6 +53,13 @@ public abstract class Vehicle {
         this.requiredNumberOfLargeSpots = requiredNumberOfLargeSpots;
     }
 
+    public ParkingSpots getParkingSpot() {
+        return parkingSpot;
+    }
+
+    public void setParkingSpot(ParkingSpots parkingSpot) {
+        this.parkingSpot = parkingSpot;
+    }
 
     public abstract VehicleType getType();
 }
